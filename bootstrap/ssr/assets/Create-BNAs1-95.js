@@ -73,8 +73,24 @@ const _sfc_main = {
           if (_push2) {
             _push2(`<div class="flex items-center justify-between"${_scopeId}><h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"${_scopeId}> Add New Loan </h2>`);
             _push2(ssrRenderComponent(unref(Link), {
+              href: _ctx.route("loans.index"),
+              class: "text-gray-800 dark:text-sky-50"
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(`Back to All Loans`);
+                } else {
+                  return [
+                    createTextVNode("Back to All Loans")
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            _push2(`</div><div class="grid grid-cols-1 sm:grid-cols-2 text-center"${_scopeId}>`);
+            _push2(ssrRenderComponent(unref(Link), {
               href: _ctx.route("loans.create"),
-              class: ["text-sky-50", { " w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
+              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -89,7 +105,7 @@ const _sfc_main = {
             }, _parent2, _scopeId));
             _push2(ssrRenderComponent(unref(Link), {
               href: _ctx.route("loans.create") + "?loan_taking=true",
-              class: ["text-sky-50", { " w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
+              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -102,29 +118,25 @@ const _sfc_main = {
               }),
               _: 1
             }, _parent2, _scopeId));
-            _push2(ssrRenderComponent(unref(Link), {
-              href: _ctx.route("loans.index"),
-              class: "text-sky-50"
-            }, {
-              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(`Back to All Loans`);
-                } else {
-                  return [
-                    createTextVNode("Back to All Loans")
-                  ];
-                }
-              }),
-              _: 1
-            }, _parent2, _scopeId));
             _push2(`</div>`);
           } else {
             return [
               createVNode("div", { class: "flex items-center justify-between" }, [
                 createVNode("h2", { class: "text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200" }, " Add New Loan "),
                 createVNode(unref(Link), {
+                  href: _ctx.route("loans.index"),
+                  class: "text-gray-800 dark:text-sky-50"
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode("Back to All Loans")
+                  ]),
+                  _: 1
+                }, 8, ["href"])
+              ]),
+              createVNode("div", { class: "grid grid-cols-1 sm:grid-cols-2 text-center" }, [
+                createVNode(unref(Link), {
                   href: _ctx.route("loans.create"),
-                  class: ["text-sky-50", { " w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
+                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
                 }, {
                   default: withCtx(() => [
                     createTextVNode("Giving Loan")
@@ -133,29 +145,20 @@ const _sfc_main = {
                 }, 8, ["href", "class"]),
                 createVNode(unref(Link), {
                   href: _ctx.route("loans.create") + "?loan_taking=true",
-                  class: ["text-sky-50", { " w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
+                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
                 }, {
                   default: withCtx(() => [
                     createTextVNode("Taking Loan")
                   ]),
                   _: 1
-                }, 8, ["href", "class"]),
-                createVNode(unref(Link), {
-                  href: _ctx.route("loans.index"),
-                  class: "text-sky-50"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("Back to All Loans")
-                  ]),
-                  _: 1
-                }, 8, ["href"])
+                }, 8, ["href", "class"])
               ])
             ];
           }
         }),
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="py-12"${_scopeId}><div class="mx-auto max-w-7xl sm:px-6 lg:px-8"${_scopeId}><section class="bg-white dark:bg-gray-900"${_scopeId}><div class="py-8 px-4 mx-auto max-w-2xl"${_scopeId}><form class="max-w-md mx-auto"${_scopeId}>`);
+            _push2(`<div class=""${_scopeId}><div class="mx-auto max-w-7xl sm:px-6 lg:px-8"${_scopeId}><section class="bg-white dark:bg-gray-900"${_scopeId}><div class="py-8 px-4 mx-auto max-w-2xl"${_scopeId}><form class="max-w-md mx-auto"${_scopeId}>`);
             if (unref(form).progress) {
               _push2(`<progress${ssrRenderAttr("value", unref(form).progress.percentage)} max="100"${_scopeId}>${ssrInterpolate(unref(form).progress.percentage)}% </progress>`);
             } else {
@@ -204,7 +207,7 @@ const _sfc_main = {
             _push2(`<!--]--></select></div></div><button${ssrIncludeBooleanAttr(unref(form).processing) ? " disabled" : ""} class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" type="submit"${_scopeId}>Save</button></form></div></section></div></div>`);
           } else {
             return [
-              createVNode("div", { class: "py-12" }, [
+              createVNode("div", { class: "" }, [
                 createVNode("div", { class: "mx-auto max-w-7xl sm:px-6 lg:px-8" }, [
                   createVNode("section", { class: "bg-white dark:bg-gray-900" }, [
                     createVNode("div", { class: "py-8 px-4 mx-auto max-w-2xl" }, [

@@ -122,7 +122,7 @@ const _sfc_main = {
             _push2(`<div class="flex items-center justify-between"${_scopeId}><h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"${_scopeId}> Create New Expense </h2>`);
             _push2(ssrRenderComponent(unref(Link), {
               href: _ctx.route("expenses.index"),
-              class: "text-sky-50"
+              class: "text-gray-700 dark:text-sky-50"
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -142,7 +142,7 @@ const _sfc_main = {
                 createVNode("h2", { class: "text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200" }, " Create New Expense "),
                 createVNode(unref(Link), {
                   href: _ctx.route("expenses.index"),
-                  class: "text-sky-50"
+                  class: "text-gray-700 dark:text-sky-50"
                 }, {
                   default: withCtx(() => [
                     createTextVNode("Back to All Expenses")
