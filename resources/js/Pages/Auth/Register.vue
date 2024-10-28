@@ -108,6 +108,14 @@ const submit = () => {
                     Register
                 </PrimaryButton>
             </div>
+            <div class="w-full mt-4">
+                <Link
+                    :href="route('login')"
+                    class="w-full inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                >
+                    Already Have an Account? Login Here
+                </Link>
+            </div>
         </form>
     </GuestLayout>
 </template>

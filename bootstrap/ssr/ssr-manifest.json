@@ -15,7 +15,7 @@
     "/build/assets/Create-BR8zHtQq.css"
   ],
   "resources/js/Components/Checkbox.vue": [
-    "/build/assets/Login-DbhQBTTK.js"
+    "/build/assets/Login-CWIQrs_m.js"
   ],
   "resources/js/Components/DangerButton.vue": [
     "/build/assets/DeleteUserForm-DKlsikOM.js"
@@ -74,10 +74,10 @@
     "/build/assets/ForgotPassword-BYPgMBsc.js"
   ],
   "resources/js/Pages/Auth/Login.vue": [
-    "/build/assets/Login-DbhQBTTK.js"
+    "/build/assets/Login-CWIQrs_m.js"
   ],
   "resources/js/Pages/Auth/Register.vue": [
-    "/build/assets/Register-CBcx4zTy.js"
+    "/build/assets/Register-S4d-f2rD.js"
   ],
   "resources/js/Pages/Auth/ResetPassword.vue": [
     "/build/assets/ResetPassword-Ys1C187z.js"
@@ -97,7 +97,7 @@
     "/build/assets/Index-BNUVLeAa.css"
   ],
   "resources/js/Pages/Loans/Create.vue": [
-    "/build/assets/Create-BNAs1-95.js"
+    "/build/assets/Create-BSQsucb9.js"
   ],
   "resources/js/Pages/Loans/Index.vue": [
     "/build/assets/Index--36-P0eY.js"

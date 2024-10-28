@@ -122,7 +122,7 @@ const _sfc_main = {
               checked: unref(form).remember,
               "onUpdate:checked": ($event) => unref(form).remember = $event
             }, null, _parent2, _scopeId));
-            _push2(`<span class="ms-2 text-sm text-gray-600 dark:text-gray-400"${_scopeId}>Remember me</span></label></div><div class="mt-4 flex items-center justify-end"${_scopeId}>`);
+            _push2(`<span class="ms-2 text-sm text-gray-600 dark:text-gray-400"${_scopeId}>Remember me</span></label></div><div class="mt-4 flex items-center justify-between"${_scopeId}>`);
             if (__props.canResetPassword) {
               _push2(ssrRenderComponent(unref(Link), {
                 href: _ctx.route("password.request"),
@@ -152,6 +152,22 @@ const _sfc_main = {
                 } else {
                   return [
                     createTextVNode(" Log in ")
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            _push2(`</div><div class="w-full mt-4"${_scopeId}>`);
+            _push2(ssrRenderComponent(unref(Link), {
+              href: _ctx.route("register"),
+              class: "w-full inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(` Create your Account `);
+                } else {
+                  return [
+                    createTextVNode(" Create your Account ")
                   ];
                 }
               }),
@@ -217,7 +233,7 @@ const _sfc_main = {
                     createVNode("span", { class: "ms-2 text-sm text-gray-600 dark:text-gray-400" }, "Remember me")
                   ])
                 ]),
-                createVNode("div", { class: "mt-4 flex items-center justify-end" }, [
+                createVNode("div", { class: "mt-4 flex items-center justify-between" }, [
                   __props.canResetPassword ? (openBlock(), createBlock(unref(Link), {
                     key: 0,
                     href: _ctx.route("password.request"),
@@ -237,6 +253,17 @@ const _sfc_main = {
                     ]),
                     _: 1
                   }, 8, ["class", "disabled"])
+                ]),
+                createVNode("div", { class: "w-full mt-4" }, [
+                  createVNode(unref(Link), {
+                    href: _ctx.route("register"),
+                    class: "w-full inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(" Create your Account ")
+                    ]),
+                    _: 1
+                  }, 8, ["href"])
                 ])
               ], 32)
             ];

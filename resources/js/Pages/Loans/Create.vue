@@ -84,8 +84,12 @@ onMounted(()=>{
                <Link :href="route('loans.index')" class="text-gray-800 dark:text-sky-50 ">Back to All Loans</Link>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 text-center">
-                <Link :href="route('loans.create')" class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center " :class="{'  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':!LoanTaker}">Giving Loan</Link>
-                <Link :href="route('loans.create')+'?loan_taking=true'" class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center" :class="{'  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':  LoanTaker}">Taking Loan</Link>
+                <Link :href="route('loans.create')"
+                      class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center "
+                      :class="{'text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':!LoanTaker}">Giving Loan</Link>
+                <Link :href="route('loans.create')+'?loan_taking=true'"
+                      class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center"
+                      :class="{'text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':  LoanTaker}">Taking Loan</Link>
             </div>
         </template>
         <div class="">

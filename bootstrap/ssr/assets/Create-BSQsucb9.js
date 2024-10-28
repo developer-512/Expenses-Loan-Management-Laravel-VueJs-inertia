@@ -90,7 +90,7 @@ const _sfc_main = {
             _push2(`</div><div class="grid grid-cols-1 sm:grid-cols-2 text-center"${_scopeId}>`);
             _push2(ssrRenderComponent(unref(Link), {
               href: _ctx.route("loans.create"),
-              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
+              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -105,7 +105,7 @@ const _sfc_main = {
             }, _parent2, _scopeId));
             _push2(ssrRenderComponent(unref(Link), {
               href: _ctx.route("loans.create") + "?loan_taking=true",
-              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
+              class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
             }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
@@ -136,7 +136,7 @@ const _sfc_main = {
               createVNode("div", { class: "grid grid-cols-1 sm:grid-cols-2 text-center" }, [
                 createVNode(unref(Link), {
                   href: _ctx.route("loans.create"),
-                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
+                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": !__props.LoanTaker }]
                 }, {
                   default: withCtx(() => [
                     createTextVNode("Giving Loan")
@@ -145,7 +145,7 @@ const _sfc_main = {
                 }, 8, ["href", "class"]),
                 createVNode(unref(Link), {
                   href: _ctx.route("loans.create") + "?loan_taking=true",
-                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
+                  class: ["text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5 text-sm font-medium text-center", { "text-sky-50  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800": __props.LoanTaker }]
                 }, {
                   default: withCtx(() => [
                     createTextVNode("Taking Loan")

@@ -1,5 +1,5 @@
 <script setup>
-import {Head, Link, useForm,router} from "@inertiajs/vue3";
+import {Head, Link, useForm} from "@inertiajs/vue3";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {onMounted} from "vue";
 import AutocompleteInput from "@/Components/AutocompleteInput.vue";

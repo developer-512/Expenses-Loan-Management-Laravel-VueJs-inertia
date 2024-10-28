@@ -130,6 +130,22 @@ const _sfc_main = {
               }),
               _: 1
             }, _parent2, _scopeId));
+            _push2(`</div><div class="w-full mt-4"${_scopeId}>`);
+            _push2(ssrRenderComponent(unref(Link), {
+              href: _ctx.route("login"),
+              class: "w-full inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(` Already Have an Account? Login Here `);
+                } else {
+                  return [
+                    createTextVNode(" Already Have an Account? Login Here ")
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
             _push2(`</div></form>`);
           } else {
             return [
@@ -233,6 +249,17 @@ const _sfc_main = {
                     ]),
                     _: 1
                   }, 8, ["class", "disabled"])
+                ]),
+                createVNode("div", { class: "w-full mt-4" }, [
+                  createVNode(unref(Link), {
+                    href: _ctx.route("login"),
+                    class: "w-full inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(" Already Have an Account? Login Here ")
+                    ]),
+                    _: 1
+                  }, 8, ["href"])
                 ])
               ], 32)
             ];
