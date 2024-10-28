@@ -16,11 +16,27 @@ class DashboardController extends Controller
     {
         $monthlyTotals_q = Expense::select(DB::raw('expense_month, SUM(amount) as total_amount'))
             ->where('expense_year', date('Y'))
+            ->where(function ($query) {
+                $query->where('user_id', Auth::id())
+                    ->orWhereIn('id', function ($subQuery) {
+                        $subQuery->select('expense_id')
+                            ->from('expense_user')
+                            ->where('user_id', Auth::id());
+                    });
+            })
             ->groupBy('expense_month')
             ->orderBy('expense_month')
             ->get();
         $monthlyTotals_q_last_year = Expense::select(DB::raw('expense_month, SUM(amount) as total_amount'))
             ->where('expense_year', date('Y',strtotime("-1 year")))
+            ->where(function ($query) {
+                $query->where('user_id', Auth::id())
+                    ->orWhereIn('id', function ($subQuery) {
+                        $subQuery->select('expense_id')
+                            ->from('expense_user')
+                            ->where('user_id', Auth::id());
+                    });
+            })
             ->groupBy('expense_month')
             ->orderBy('expense_month')
             ->get();
