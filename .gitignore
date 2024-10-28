@@ -1,7 +1,5 @@
 /.phpunit.cache
-/bootstrap/ssr
 /node_modules
-/public/build
 /public/hot
 /public/storage
 /public/receipts
@@ -22,3 +20,6 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+dev.ini
+git-deploy
+expenses_libs.zip
