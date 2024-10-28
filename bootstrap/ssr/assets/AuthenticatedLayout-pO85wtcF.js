@@ -208,10 +208,40 @@ const _sfc_main = {
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(` Dashboard `);
+            _push2(` Reports `);
           } else {
             return [
-              createTextVNode(" Dashboard ")
+              createTextVNode(" Reports ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_sfc_main$2, {
+        href: _ctx.route("expenses.index"),
+        active: _ctx.route().current("expenses")
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Expenses `);
+          } else {
+            return [
+              createTextVNode(" Expenses ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_sfc_main$2, {
+        href: _ctx.route("loans.index"),
+        active: _ctx.route().current("loans")
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Loans `);
+          } else {
+            return [
+              createTextVNode(" Loans ")
             ];
           }
         }),
@@ -323,10 +353,40 @@ const _sfc_main = {
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(` Dashboard `);
+            _push2(` Reports `);
           } else {
             return [
-              createTextVNode(" Dashboard ")
+              createTextVNode(" Reports ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_sfc_main$1, {
+        href: _ctx.route("expenses.index"),
+        active: _ctx.route().current("expenses")
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Expenses `);
+          } else {
+            return [
+              createTextVNode(" Expenses ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_sfc_main$1, {
+        href: _ctx.route("loans.index"),
+        active: _ctx.route().current("loans")
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Loans `);
+          } else {
+            return [
+              createTextVNode(" Loans ")
             ];
           }
         }),
