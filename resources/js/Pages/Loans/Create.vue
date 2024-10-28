@@ -80,13 +80,15 @@ onMounted(()=>{
                 >
                     Add New Loan
                 </h2>
-                <Link :href="route('loans.create')" class="text-sky-50" :class="{' w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':!LoanTaker}">Giving Loan</Link>
-                <Link :href="route('loans.create')+'?loan_taking=true'" class="text-sky-50" :class="{' w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center text-white bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':  LoanTaker}">Taking Loan</Link>
-                <Link :href="route('loans.index')" class="text-sky-50 ">Back to All Loans</Link>
-            </div>
 
+               <Link :href="route('loans.index')" class="text-gray-800 dark:text-sky-50 ">Back to All Loans</Link>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 text-center">
+                <Link :href="route('loans.create')" class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center " :class="{'  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':!LoanTaker}">Giving Loan</Link>
+                <Link :href="route('loans.create')+'?loan_taking=true'" class="text-gray-800 dark:text-sky-50 w-auto inline-flex justify-between mt-3 items-center px-5 py-2.5  text-sm font-medium text-center" :class="{'  bg-sky-700 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 hover:bg-sky-800':  LoanTaker}">Taking Loan</Link>
+            </div>
         </template>
-        <div class="py-12">
+        <div class="">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <section class="bg-white dark:bg-gray-900">
                     <div class="py-8 px-4 mx-auto max-w-2xl ">

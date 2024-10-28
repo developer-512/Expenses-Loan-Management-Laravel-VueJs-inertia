@@ -80,7 +80,7 @@ onMounted(()=>{
                 >
                     Create New Expense
                 </h2>
-                <Link :href="route('expenses.index')" class="text-sky-50 ">Back to All Expenses</Link>
+                <Link :href="route('expenses.index')" class="text-gray-700 dark:text-sky-50 ">Back to All Expenses</Link>
             </div>
 
         </template>
