@@ -66,7 +66,7 @@ class ExpenseController extends Controller
         }
 
 //echo $Expenses->toRawSql();exit;
-        $expenses = $Expenses->paginate(10);//Auth::user()->expenses;
+        $expenses = $Expenses->orderByDesc('id')->paginate(20);//Auth::user()->expenses;
 
 //        foreach ($expenses as $expense) {
 //            var_dump($expense->receipt_url);
