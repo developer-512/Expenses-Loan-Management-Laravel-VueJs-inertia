@@ -14,7 +14,7 @@ const _sfc_main = {
         _push(ssrRenderComponent(unref(Link), {
           "preserve-scroll": "",
           href: link.url ?? "",
-          class: ["flex items-center justify-center px-3 py-2 text-sm rounded-lg text-gray-600", { "bg-gray-200": link.active, "!text-gray-300": !link.url }]
+          class: ["flex items-center justify-center px-3 py-2 text-sm rounded-lg text-gray-200", { "bg-gray-700 text-gray-200 dark:bg-gray-200 dark:text-gray-700": link.active, "!text-gray-300": !link.url }]
         }, null, _parent));
       });
       _push(`<!--]--></nav>`);

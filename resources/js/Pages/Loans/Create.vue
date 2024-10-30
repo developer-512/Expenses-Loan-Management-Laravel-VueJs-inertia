@@ -37,6 +37,7 @@ const change_lender = (e) =>{
 const current = new Date();
 const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
 const form = useForm({
+    title: "",
     lender: "",
     borrower: "",
     loan_date:date ,
@@ -54,6 +55,7 @@ const updateLoan = () => form.put(route('loans.update',props.loan.id));
 onMounted(()=>{
     if (props.loan) {
         lender=(props.loan.lender==page.props.auth.user.id);
+        form.title = props.loan.title || "";
         form.lender = props.loan.lender.id || "";
         form.borrower = props.loan.borrower.id || "";
         form.amount = props.loan.amount || "";
@@ -156,7 +158,14 @@ onMounted(()=>{
                                             {{loan.borrower.name}} Took This Loan From You
                                         </h3>
                                 </div>
+
                                     <div class="sm:col-span-2">
+                                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title:</label>
+                                        <input type="text" id="title"
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                               v-model="form.title" />
+                                    </div>
+                                <div class="sm:col-span-2">
                                         <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount:</label>
                                         <input type="number" id="amount"
                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"

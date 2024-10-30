@@ -2,7 +2,7 @@ import { ref, useSSRContext, onMounted, unref, withCtx, createTextVNode, openBlo
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderStyle, ssrRenderComponent, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual, ssrRenderList, ssrInterpolate, ssrRenderClass } from "vue/server-renderer";
 import { _ as _sfc_main$2 } from "./AuthenticatedLayout-pO85wtcF.js";
 import { useForm, Head, Link } from "@inertiajs/vue3";
-import { _ as _sfc_main$3 } from "./Pagination-DpkGII-j.js";
+import { _ as _sfc_main$3 } from "./Pagination-DonOke2s.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper-1tPrXgE0.js";
 import "./ApplicationLogo-3H3I4iid.js";
 const _sfc_main$1 = {

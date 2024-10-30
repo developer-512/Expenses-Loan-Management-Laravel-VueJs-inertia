@@ -184,6 +184,9 @@ const headers = ["Title", "Amount","Loan Month" ,"Payable" ,"Payed","Loan Type" 
                                 <tbody>
                                 <tr v-for="loan in loans.data" :key="loan.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <span v-if="loan.title">
+                                            Title: {{loan.title}}<br>
+                                        </span>
                                         <span v-if="loan.lender.id!=$page.props.auth.user.id">
                                             You Took This Loan From <strong>{{loan.lender.name}}</strong>
                                         </span>

@@ -38,6 +38,7 @@ const _sfc_main = {
     const current = /* @__PURE__ */ new Date();
     const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
     const form = useForm({
+      title: "",
       lender: "",
       borrower: "",
       loan_date: date,
@@ -55,6 +56,7 @@ const _sfc_main = {
     onMounted(() => {
       if (props.loan) {
         props.loan.lender == page.props.auth.user.id;
+        form.title = props.loan.title || "";
         form.lender = props.loan.lender.id || "";
         form.borrower = props.loan.borrower.id || "";
         form.amount = props.loan.amount || "";
@@ -200,7 +202,7 @@ const _sfc_main = {
             } else {
               _push2(`<!---->`);
             }
-            _push2(`<div class="sm:col-span-2"${_scopeId}><label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Amount:</label><input type="number" id="amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).amount)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="loan_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Date:</label><input type="date" id="loan_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).loan_date)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="paid_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Paid Amount:</label><input type="number" id="paid_amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).paid_amount)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="payment_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Payment Date:</label><input type="date" id="payment_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).payment_date)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Status:</label><select id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${_scopeId}><!--[-->`);
+            _push2(`<div class="sm:col-span-2"${_scopeId}><label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Title:</label><input type="text" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).title)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Amount:</label><input type="number" id="amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).amount)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="loan_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Date:</label><input type="date" id="loan_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).loan_date)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="paid_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Paid Amount:</label><input type="number" id="paid_amount" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).paid_amount)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="payment_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Payment Date:</label><input type="date" id="payment_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${ssrRenderAttr("value", unref(form).payment_date)}${_scopeId}></div><div class="sm:col-span-2"${_scopeId}><label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"${_scopeId}>Loan Status:</label><select id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"${_scopeId}><!--[-->`);
             ssrRenderList(__props.loan_statuses, (loan_status) => {
               _push2(`<option${ssrRenderAttr("value", loan_status)}${_scopeId}>${ssrInterpolate(loan_status)}</option>`);
             });
@@ -303,6 +305,20 @@ const _sfc_main = {
                             ])) : createCommentVNode("", true),
                             unref(form).lender == _ctx.$page.props.auth.user.id ? (openBlock(), createBlock("h3", { key: 1 }, toDisplayString(__props.loan.borrower.name) + " Took This Loan From You ", 1)) : createCommentVNode("", true)
                           ])) : createCommentVNode("", true),
+                          createVNode("div", { class: "sm:col-span-2" }, [
+                            createVNode("label", {
+                              for: "title",
+                              class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            }, "Title:"),
+                            withDirectives(createVNode("input", {
+                              type: "text",
+                              id: "title",
+                              class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500",
+                              "onUpdate:modelValue": ($event) => unref(form).title = $event
+                            }, null, 8, ["onUpdate:modelValue"]), [
+                              [vModelText, unref(form).title]
+                            ])
+                          ]),
                           createVNode("div", { class: "sm:col-span-2" }, [
                             createVNode("label", {
                               for: "amount",

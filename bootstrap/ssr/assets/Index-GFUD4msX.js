@@ -2,7 +2,7 @@ import { onMounted, unref, withCtx, createTextVNode, openBlock, createBlock, cre
 import { ssrRenderComponent, ssrRenderAttr, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual, ssrRenderList, ssrInterpolate } from "vue/server-renderer";
 import { _ as _sfc_main$1 } from "./AuthenticatedLayout-pO85wtcF.js";
 import { useForm, Head, Link } from "@inertiajs/vue3";
-import { _ as _sfc_main$2 } from "./Pagination-DpkGII-j.js";
+import { _ as _sfc_main$2 } from "./Pagination-DonOke2s.js";
 import "./ApplicationLogo-3H3I4iid.js";
 import "./_plugin-vue_export-helper-1tPrXgE0.js";
 const _sfc_main = {
@@ -309,6 +309,11 @@ const _sfc_main = {
             _push2(`<div class="py-12"${_scopeId}><div class="mx-auto max-w-7xl sm:px-6 lg:px-8"${_scopeId}><div class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-700"${_scopeId}><div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto"${_scopeId}><div class="inline-block min-w-full shadow rounded-lg overflow-hidden"${_scopeId}><div class="relative overflow-x-auto"${_scopeId}><table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"${_scopeId}><thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"${_scopeId}><tr${_scopeId}><th scope="col" class="px-6 py-3"${_scopeId}> Payable to/<br${_scopeId}>Receivable from </th><th scope="col" class="px-6 py-3 hidden md:table-cell"${_scopeId}> Amount </th><th scope="col" class="px-6 py-3 hidden md:table-cell"${_scopeId}> Loan Date </th><th scope="col" class="px-6 py-3 hidden md:table-cell"${_scopeId}> Status </th><th scope="col" class="px-6 py-3 hidden md:table-cell"${_scopeId}> Payment Details </th><th scope="col" class="px-6 py-3"${_scopeId}> Actions </th></tr></thead><tbody${_scopeId}><!--[-->`);
             ssrRenderList(__props.loans.data, (loan) => {
               _push2(`<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"${_scopeId}><td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"${_scopeId}>`);
+              if (loan.title) {
+                _push2(`<span${_scopeId}> Title: ${ssrInterpolate(loan.title)}<br${_scopeId}></span>`);
+              } else {
+                _push2(`<!---->`);
+              }
               if (loan.lender.id != _ctx.$page.props.auth.user.id) {
                 _push2(`<span${_scopeId}> You Took This Loan From <strong${_scopeId}>${ssrInterpolate(loan.lender.name)}</strong></span>`);
               } else {
@@ -388,11 +393,15 @@ const _sfc_main = {
                                   class: "bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                                 }, [
                                   createVNode("td", { class: "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" }, [
-                                    loan.lender.id != _ctx.$page.props.auth.user.id ? (openBlock(), createBlock("span", { key: 0 }, [
+                                    loan.title ? (openBlock(), createBlock("span", { key: 0 }, [
+                                      createTextVNode(" Title: " + toDisplayString(loan.title), 1),
+                                      createVNode("br")
+                                    ])) : createCommentVNode("", true),
+                                    loan.lender.id != _ctx.$page.props.auth.user.id ? (openBlock(), createBlock("span", { key: 1 }, [
                                       createTextVNode(" You Took This Loan From "),
                                       createVNode("strong", null, toDisplayString(loan.lender.name), 1)
                                     ])) : createCommentVNode("", true),
-                                    loan.lender.id == _ctx.$page.props.auth.user.id ? (openBlock(), createBlock("span", { key: 1 }, [
+                                    loan.lender.id == _ctx.$page.props.auth.user.id ? (openBlock(), createBlock("span", { key: 2 }, [
                                       createVNode("strong", null, toDisplayString(loan.borrower.name), 1),
                                       createTextVNode(" Took This Loan From You ")
                                     ])) : createCommentVNode("", true),

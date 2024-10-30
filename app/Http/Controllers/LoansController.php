@@ -43,6 +43,7 @@ class LoansController extends Controller
 //            $Loans=$Loans->whereLike('amount','%'.$search['search_query'].'%');
             $Loans=$Loans->where(function ($query) use ($search) {
                 $query->whereLike('amount','%'.$search['search_query'].'%');
+                $query->orWhereLike('title','%'.$search['search_query'].'%');
                 $query->orWhereIn('lender',function ($subQuery) use ($search) {
                     $subQuery->select('id')->from('users')->whereLike('name',$search['search_query'].'%');
                 });
@@ -61,8 +62,8 @@ class LoansController extends Controller
 //            $Loans=$Loans->where('expense_year',$search['search_expense_year']);
 //            $is_Searching=true;
 //        }
-        $loans=$Loans->paginate(10);
-//echo $Loans->toRawSql();exit;
+        $loans=$Loans->orderByDesc('id')->paginate(10);
+        //echo $Loans->toRawSql();exit;
         return Inertia::render('Loans/Index', ['loans' => $loans,'search'=>$search,'is_Searching'=>$is_Searching]);
     }
 

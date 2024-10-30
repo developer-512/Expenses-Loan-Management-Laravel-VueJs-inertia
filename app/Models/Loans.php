@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Loans extends Model
 {
-    protected $fillable =['lender','borrower','amount','loan_date','payment_date','paid_amount','status'];
+    protected $fillable =['title','lender','borrower','amount','loan_date','payment_date','paid_amount','status'];
 
 
     public function lender(): BelongsTo
