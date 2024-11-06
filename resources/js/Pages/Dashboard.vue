@@ -42,9 +42,12 @@ let monthlyExpenses_last=Object.keys(props.monthlyExpenses_last).map((key) => pr
 // console.log(monthlyExpenses);'
 let pendingLoans=[],pendingLoansNames=[];
 props.pendingLoanDetails.forEach((pendingLoanDetail) => {
-    pendingLoansNames.push(pendingLoanDetail.lender.name);
+    var pendingLoansName=' From '+pendingLoanDetail.lender.name;
+    if(pendingLoanDetail.title){
+        pendingLoansName=pendingLoanDetail.title+pendingLoansName;
+    }
+    pendingLoansNames.push(pendingLoansName);
     pendingLoans.push(pendingLoanDetail.amount-pendingLoanDetail.paid_amount);
-
 })
 console.log([pendingLoans,pendingLoansNames])
 const date_=new Date();
@@ -147,7 +150,7 @@ const chartOptions = ref({
                                         />
                                     </div>
                                     <div class="col-span-1">
-                                        <h2 class="text-white text-2xl text-center mb-4">Paid/Received Loans</h2>
+                                        <h2 class="text-white text-2xl text-center mb-4">Paid/Unpaid Loans</h2>
                                         <Pie
                                             id="Loan-chart"
                                             :options="chartOptions"

@@ -53,10 +53,30 @@ class DashboardController extends Controller
         foreach ($monthlyTotals_q_last_year as $monthlyTotal) {
             $monthlyTotals_last_year[$monthlyTotal->expense_month]=$monthlyTotal->total_amount;
         }
-        $totalPayableLoan=Loans::where('borrower',Auth::id())->sum('amount');
+        //Payable Loan Amount
+        $totalPayableLoan=Loans::where('borrower',Auth::id())->where(function ($query){
+            $query->where('status','Paying');
+            $query->orWhere('status','Unpaid');
+        })->sum('amount');
+        $totalPayableLoanPaidAmount=Loans::where('borrower',Auth::id())->where(function ($query){
+            $query->where('status','Paying');
+            $query->orWhere('status','Unpaid');
+        })->sum('paid_amount');
+        $totalPayableLoan=$totalPayableLoan-$totalPayableLoanPaidAmount;
+        //Receivable Loan Amount
+        $totalReceivableLoan=Loans::where('lender',Auth::id())->where(function ($query){
+            $query->where('status','Paying');
+            $query->orWhere('status','Unpaid');
+        })->sum('amount');
+        $totalReceivableLoanPaidAmount=Loans::where('lender',Auth::id())->where(function ($query){
+        $query->where('status','Paying');
+        $query->orWhere('status','Unpaid');
+        })->sum('paid_amount');
+        $totalReceivableLoan=$totalReceivableLoan-$totalReceivableLoanPaidAmount;
+
         $totalPaidLoan=Loans::where('borrower',Auth::id())->sum('paid_amount');
         $totalPaidPendingLoan=$totalPayableLoan-$totalPaidLoan;
-        $totalReceivableLoan=Loans::where('lender',Auth::id())->sum('amount');
+
         $pending_loan_details=Loans::with(['lender'])->where(function ($query){
             $query->where('status','Paying');
             $query->orWhere('status','Unpaid');

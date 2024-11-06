@@ -49,7 +49,11 @@ const _sfc_main = {
     let monthlyExpenses_last = Object.keys(props.monthlyExpenses_last).map((key) => props.monthlyExpenses_last[key]);
     let pendingLoans = [], pendingLoansNames = [];
     props.pendingLoanDetails.forEach((pendingLoanDetail) => {
-      pendingLoansNames.push(pendingLoanDetail.lender.name);
+      var pendingLoansName = " From " + pendingLoanDetail.lender.name;
+      if (pendingLoanDetail.title) {
+        pendingLoansName = pendingLoanDetail.title + pendingLoansName;
+      }
+      pendingLoansNames.push(pendingLoansName);
       pendingLoans.push(pendingLoanDetail.amount - pendingLoanDetail.paid_amount);
     });
     console.log([pendingLoans, pendingLoansNames]);
@@ -151,7 +155,7 @@ const _sfc_main = {
               options: chartOptions.value,
               data: chartDataLoan.value
             }, null, _parent2, _scopeId));
-            _push2(`</div><div class="col-span-1"${_scopeId}><h2 class="text-white text-2xl text-center mb-4"${_scopeId}>Paid/Received Loans</h2>`);
+            _push2(`</div><div class="col-span-1"${_scopeId}><h2 class="text-white text-2xl text-center mb-4"${_scopeId}>Paid/Unpaid Loans</h2>`);
             _push2(ssrRenderComponent(unref(Pie), {
               id: "Loan-chart",
               options: chartOptions.value,
@@ -190,7 +194,7 @@ const _sfc_main = {
                               }, null, 8, ["options", "data"])
                             ]),
                             createVNode("div", { class: "col-span-1" }, [
-                              createVNode("h2", { class: "text-white text-2xl text-center mb-4" }, "Paid/Received Loans"),
+                              createVNode("h2", { class: "text-white text-2xl text-center mb-4" }, "Paid/Unpaid Loans"),
                               createVNode(unref(Pie), {
                                 id: "Loan-chart",
                                 options: chartOptions.value,
