@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 use JetBrains\PhpStorm\NoReturn;
@@ -92,7 +93,11 @@ class ExpenseController extends Controller
     {
 //        dd($request->all());
         if($request->file('receipt')){
-            $path = Storage::putFile('receipts/user_'.Auth::id(), $request->file('receipt'));
+            $file_name=Str::slug($request->title);
+            $customFileName = $file_name.'-receipt_' . time() . '.' . $request->file('receipt')->getClientOriginalExtension();
+            $path = Storage::putFileAs('receipts/user_' . Auth::id(), $request->file('receipt'), $customFileName);
+
+            //$path = Storage::putFile('receipts/user_'.Auth::id(), $request->file('receipt'));
         }
         $expense=new Expense($request->all());
         $expense->user_id=Auth::id();
@@ -128,7 +133,10 @@ class ExpenseController extends Controller
 //        dd([$request->all(),$expense->title]);
         $expense->update($request->except(['_token','receipt']));
         if($request->file('receipt')){
-            $path = Storage::putFile('receipts/user_'.Auth::id(), $request->file('receipt'));
+            $file_name=Str::slug($request->title);
+            $customFileName = $file_name.'-receipt_' . time() . '.' . $request->file('receipt')->getClientOriginalExtension();
+            $path = Storage::putFileAs('receipts/user_' . Auth::id(), $request->file('receipt'), $customFileName);
+            //$path = Storage::putFile('receipts/user_'.Auth::id(), $request->file('receipt'));
             $expense->update(['receipt'=>$path??'']);
         }
 
