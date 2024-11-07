@@ -75,7 +75,7 @@ class DashboardController extends Controller
         $totalReceivableLoan=$totalReceivableLoan-$totalReceivableLoanPaidAmount;
 
         $totalPaidLoan=Loans::where('borrower',Auth::id())->sum('paid_amount');
-        $totalPaidPendingLoan=$totalPayableLoan-$totalPaidLoan;
+        $totalPaidPendingLoan=$totalPayableLoan;
 
         $pending_loan_details=Loans::with(['lender'])->where(function ($query){
             $query->where('status','Paying');

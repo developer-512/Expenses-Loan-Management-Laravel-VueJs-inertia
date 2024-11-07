@@ -86,7 +86,7 @@ const _sfc_main = {
   setup(__props) {
     const props = __props;
     const checkURL = (url) => {
-      return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+      return url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null;
     };
     console.log(props.expenses);
     const form = useForm({});

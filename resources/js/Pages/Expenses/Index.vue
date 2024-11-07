@@ -37,7 +37,7 @@ const props=defineProps({
     }
 });
 const checkURL=(url)=> {
-    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    return(url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null);
 }
 console.log(props.expenses);
 const form = useForm({});
