@@ -91,7 +91,6 @@ const _sfc_main = {
       expense_year: (/* @__PURE__ */ new Date()).getFullYear(),
       shared: []
     });
-    console.log(props.expense);
     const submit = () => props.isUpdating ? updateExpense() : addExpense();
     const addExpense = () => form.post(route("expenses.store"));
     const updateExpense = () => {
@@ -176,7 +175,19 @@ const _sfc_main = {
             ssrRenderList(__props.users, (user) => {
               _push2(`<option${ssrRenderAttr("value", user.id)}${_scopeId}>${ssrInterpolate(user.name)} - (${ssrInterpolate(user.email)})</option>`);
             });
-            _push2(`<!--]--></select></div></div><button${ssrIncludeBooleanAttr(unref(form).processing) ? " disabled" : ""} class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" type="submit"${_scopeId}>Save</button></form></div></section></div></div>`);
+            _push2(`<!--]--></select></div></div><button${ssrIncludeBooleanAttr(unref(form).processing) ? " disabled" : ""} class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" type="submit"${_scopeId}>Save</button>`);
+            if (unref(form).progress) {
+              _push2(`<div class="sm:col-span-2"${_scopeId}><strong${_scopeId}>Saving...</strong>`);
+              if (unref(form).progress) {
+                _push2(`<progress class="w-full"${ssrRenderAttr("value", unref(form).progress.percentage)} max="100"${_scopeId}>${ssrInterpolate(unref(form).progress.percentage)}% </progress>`);
+              } else {
+                _push2(`<!---->`);
+              }
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            _push2(`</form></div></section></div></div>`);
           } else {
             return [
               createVNode("div", { class: "py-12" }, [
@@ -397,7 +408,19 @@ const _sfc_main = {
                           disabled: unref(form).processing,
                           class: "inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800",
                           type: "submit"
-                        }, "Save", 8, ["disabled"])
+                        }, "Save", 8, ["disabled"]),
+                        unref(form).progress ? (openBlock(), createBlock("div", {
+                          key: 1,
+                          class: "sm:col-span-2"
+                        }, [
+                          createVNode("strong", null, "Saving..."),
+                          unref(form).progress ? (openBlock(), createBlock("progress", {
+                            key: 0,
+                            class: "w-full",
+                            value: unref(form).progress.percentage,
+                            max: "100"
+                          }, toDisplayString(unref(form).progress.percentage) + "% ", 9, ["value"])) : createCommentVNode("", true)
+                        ])) : createCommentVNode("", true)
                       ], 32)
                     ])
                   ])

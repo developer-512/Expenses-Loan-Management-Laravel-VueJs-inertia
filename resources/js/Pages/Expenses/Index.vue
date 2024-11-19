@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import {Head,Link,useForm } from "@inertiajs/vue3";
+import {Head,Link,useForm,router } from "@inertiajs/vue3";
 import Pagination from "@/Components/Pagination.vue";
 import {onMounted} from "vue";
 import ImagePopup from "@/Components/ImagePopup.vue";
@@ -64,6 +64,11 @@ const deleteExpense =  (id) => {
         form.delete(`expenses/${id}`);
     }
 }
+const duplicateExpenses=()=>{
+  if(confirm("Do you really want to Duplicate current months record to next month?")) {
+      router.get(route('expenses.duplicate'));
+  }
+};
 const updatePayed = (id) => {
     paidForm.patch(`expenses/${id}/payed`, {
         preserveScroll: true, // optional: prevent the page from scrolling when the form updates
@@ -259,7 +264,8 @@ const headers = ["Title", "Amount","Expense Month" ,"Payable" ,"Payed","Expense 
                             <Pagination :pagination="expenses" />
 
                             <div class="w-full flex justify-between px-6">
-                                <Link :href="route('expenses.duplicate')" class="w-auto inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">Copy Current Month Expenses To Next</Link>
+
+                                <button @click="duplicateExpenses()" class="w-auto inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">Copy Current Month Expenses To Next</button>
 
                             </div>
                         </div>

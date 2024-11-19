@@ -147,21 +147,33 @@ class ExpenseController extends Controller
     {
         $current_month=date('m');
         $current_year=date('Y');
+        $new_month=($current_month<12?(int)$current_month+1:1);
+        $new_year=($current_month==12?(int)$current_year+1:$current_year);
         $currentMonthExpenses=Expense::with(['shared','user'])
             ->where('user_id', Auth::id())
+            ->where('type', 'Recurring-Payment')
             ->where('expense_month',$current_month)
             ->where('expense_year',$current_year)
             ->get();
         foreach ($currentMonthExpenses as $currentMonthExpense) {
-            $newMonthExpense=$currentMonthExpense->replicate();
-            $newMonthExpense->expense_month=($currentMonthExpense->expense_month<12?$currentMonthExpense->expense_month+1:1);
-            if($newMonthExpense->expense_month==12){
-                $newMonthExpense->expense_year=$currentMonthExpense->expense_year+1;
+            $check_expense=Expense::with(['shared','user'])
+                ->where('title', $currentMonthExpense->title)
+                ->where('user_id', $currentMonthExpense->user_id)
+                ->where('amount', $currentMonthExpense->amount)
+                ->where('type', $currentMonthExpense->type)
+                ->where('expense_month',$new_month)
+                ->where('expense_year',$new_year)
+                ->count();
+            if($check_expense==0){
+                $newMonthExpense=$currentMonthExpense->replicate();
+                $newMonthExpense->payed=0;
+                $newMonthExpense->expense_month=$new_month;
+                $newMonthExpense->expense_year=$new_year;
+                $newMonthExpense->save();
             }
-            $newMonthExpense->save();
+
         }
-//        dd($currentMonthExpenses);
-        return Redirect::route('expenses.index');
+        return Redirect::route('expenses.index',['search_expense_month'=>$new_month,'search_expense_year'=>$new_year]);
     }
     /**
      * Remove the specified resource from storage.

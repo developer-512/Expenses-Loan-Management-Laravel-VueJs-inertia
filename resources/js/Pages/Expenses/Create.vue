@@ -32,7 +32,7 @@ const form = useForm({
     expense_year: new Date().getFullYear(),
     shared:[]
 });
-console.log(props.expense);
+//console.log(props.expense);
 const submit = () => (props.isUpdating?updateExpense():addExpense());
 const addExpense = () => form.post(route('expenses.store'));
 const updateExpense = () =>{
@@ -121,7 +121,7 @@ onMounted(()=>{
                                     />
                                     <br>
                                     <a v-if="expense&&expense.full_receipt_path" :href="expense.full_receipt_path" class="text-white text-lg " target="_blank" title="Receipt" download>Attached Receipt Link</a>
-                                    </div>
+                                </div>
 
                                     <div class="sm:col-span-2 hidden">
                                         <div class="flex items-center space-x-2">
@@ -208,6 +208,13 @@ onMounted(()=>{
 
                             </div>
                             <button :disabled="form.processing" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" type="submit">Save</button>
+                            <div class="sm:col-span-2" v-if="form.progress">
+                                <strong>Saving...</strong>
+                                <progress class="w-full" v-if="form.progress" :value="form.progress.percentage" max="100">
+                                {{ form.progress.percentage }}%
+                            </progress>
+                            </div>
+
                         </form>
                     </div>
 

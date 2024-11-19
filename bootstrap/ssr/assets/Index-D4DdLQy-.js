@@ -1,7 +1,7 @@
 import { ref, useSSRContext, onMounted, unref, withCtx, createTextVNode, openBlock, createBlock, createCommentVNode, createVNode, withModifiers, withDirectives, vModelText, vModelSelect, Fragment, renderList, toDisplayString } from "vue";
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderStyle, ssrRenderComponent, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual, ssrRenderList, ssrInterpolate, ssrRenderClass } from "vue/server-renderer";
 import { _ as _sfc_main$2 } from "./AuthenticatedLayout-pO85wtcF.js";
-import { useForm, Head, Link } from "@inertiajs/vue3";
+import { useForm, Head, Link, router } from "@inertiajs/vue3";
 import { _ as _sfc_main$3 } from "./Pagination-DonOke2s.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper-1tPrXgE0.js";
 import "./ApplicationLogo-3H3I4iid.js";
@@ -111,6 +111,11 @@ const _sfc_main = {
     const deleteExpense = (id) => {
       if (confirm("Do you really want to delete?")) {
         form.delete(`expenses/${id}`);
+      }
+    };
+    const duplicateExpenses = () => {
+      if (confirm("Do you really want to Duplicate current months record to next month?")) {
+        router.get(route("expenses.duplicate"));
       }
     };
     const updatePayed = (id) => {
@@ -404,23 +409,7 @@ const _sfc_main = {
             });
             _push2(`<!--]--></tbody></table></div>`);
             _push2(ssrRenderComponent(_sfc_main$3, { pagination: __props.expenses }, null, _parent2, _scopeId));
-            _push2(`<div class="w-full flex justify-between px-6"${_scopeId}>`);
-            _push2(ssrRenderComponent(unref(Link), {
-              href: _ctx.route("expenses.duplicate"),
-              class: "w-auto inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            }, {
-              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-                if (_push3) {
-                  _push3(`Copy Current Month Expenses To Next`);
-                } else {
-                  return [
-                    createTextVNode("Copy Current Month Expenses To Next")
-                  ];
-                }
-              }),
-              _: 1
-            }, _parent2, _scopeId));
-            _push2(`</div></div></div></div></div></div>`);
+            _push2(`<div class="w-full flex justify-between px-6"${_scopeId}><button class="w-auto inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"${_scopeId}>Copy Current Month Expenses To Next</button></div></div></div></div></div></div>`);
           } else {
             return [
               createVNode("div", { class: "py-12" }, [
@@ -535,15 +524,10 @@ const _sfc_main = {
                         ]),
                         createVNode(_sfc_main$3, { pagination: __props.expenses }, null, 8, ["pagination"]),
                         createVNode("div", { class: "w-full flex justify-between px-6" }, [
-                          createVNode(unref(Link), {
-                            href: _ctx.route("expenses.duplicate"),
+                          createVNode("button", {
+                            onClick: ($event) => duplicateExpenses(),
                             class: "w-auto inline-flex items-center px-5 py-2.5 mt-3 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                          }, {
-                            default: withCtx(() => [
-                              createTextVNode("Copy Current Month Expenses To Next")
-                            ]),
-                            _: 1
-                          }, 8, ["href"])
+                          }, "Copy Current Month Expenses To Next", 8, ["onClick"])
                         ])
                       ])
                     ])
